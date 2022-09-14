@@ -6,13 +6,16 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: Franklin5
         volumes:
-        - "./test/:/var/www/html"
+        - "./initdb/:/docker-entrypoint-initdb.d"
+        - db_volume:/var/lib/mysql
     www:
         depends_on:
         - db
-        image: php:7.4.18-apache
+        build: .
         volumes:
-        - "./test/:/var/www/html"
+        - "./phpdir/:/var/www/html"
         ports:
         - 80:80
         - 443:443
+volumes:
+    db_volume:
