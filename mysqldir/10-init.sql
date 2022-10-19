@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS appDB;
 CREATE USER IF NOT EXISTS 'user'@'%' IDENTIFIED BY 'password';
-GRANT SELECT,UPDATE,INSERT ON appDB.* TO 'user'@'%';
+GRANT SELECT,UPDATE,INSERT,DELETE ON appDB.* TO 'user'@'%';
 FLUSH PRIVILEGES;
 
 USE appDB;
@@ -21,12 +21,6 @@ INSERT INTO users (name, surname)
 SELECT * FROM (SELECT 'Bob', 'Marley') AS tmp
 WHERE NOT EXISTS (
     SELECT name FROM users WHERE name = 'Bob' AND surname = 'Marley'
-) LIMIT 1;
-
-INSERT INTO users (name, surname)
-SELECT * FROM (SELECT 'Alex', 'Rover') AS tmp
-WHERE NOT EXISTS (
-    SELECT name FROM users WHERE name = 'Alex' AND surname = 'Rover'
 ) LIMIT 1;
 
 INSERT INTO users (name, surname)

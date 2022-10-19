@@ -1,0 +1,803 @@
+{
+	"info": {
+		"_postman_id": "97daedc3-2eb0-4b4e-bf29-19ecbf656f9a",
+		"name": "LAPI",
+		"description": "Buy or rent spacecrafts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23935972"
+	},
+	"item": [
+		{
+			"name": "PutUsers",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/{\"name\":\"Mikhail\",\"surname\":\"Volk\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"{\"name\":\"Mikhail\",\"surname\":\"Volk\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutUsersExistent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/{\"name\":\"Andrej\",\"surname\":\"Lyannoi\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"{\"name\":\"Andrej\",\"surname\":\"Lyannoi\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutUsersErrorInvalidDataSize",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/{\"name\":\"Andrej\",\"surname\":\"Lyannoi\",\"amogus\":\"2\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"{\"name\":\"Andrej\",\"surname\":\"Lyannoi\",\"amogus\":\"2\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutUsersErrorNameMissing",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/{\"name\":\"\",\"surname\":\"Lyannoi\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"{\"name\":\"\",\"surname\":\"Lyannoi\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutUsersErrorSurnameMissing",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/{\"name\":\"Andrej\",\"surname\":\"\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"{\"name\":\"Andrej\",\"surname\":\"\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutAdmins",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/{\"name\":\"Vilk\",\"actual\":\"Amogus\",\"pass\":\"kekw\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"{\"name\":\"Vilk\",\"actual\":\"Amogus\",\"pass\":\"kekw\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutAdminsExistent",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P/h8xANdyNGcDwHN1\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P",
+						"h8xANdyNGcDwHN1\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutAdminsErrorInvalidDataSize",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/{\"name\":\"Andrej\",\"Actual\":\"Lyannoi\",\"pass\":\"2\",\"amogus\":\"2\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"{\"name\":\"Andrej\",\"Actual\":\"Lyannoi\",\"pass\":\"2\",\"amogus\":\"2\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutAdminsErrorNameMissing",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/{\"name\":\"\",\"Actual\":\"Lyannoi\",\"pass\":\"2\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"{\"name\":\"\",\"Actual\":\"Lyannoi\",\"pass\":\"2\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutAdminsErrorActualMissing",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/{\"name\":\"Andrej\",\"Actual\":\"\",\"pass\":\"2\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"{\"name\":\"Andrej\",\"Actual\":\"\",\"pass\":\"2\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutAdminsErrorPassMissing",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/{\"name\":\"Andrej\",\"actual\":\"Lyannoi\",\"pass\":\"\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"{\"name\":\"Andrej\",\"actual\":\"Lyannoi\",\"pass\":\"\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutErrorEmptyQuery",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutErrorInvalidEntity",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/amogus/{}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"amogus",
+						"{}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutErrorInvalidJSON",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/amogus/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"amogus",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsers1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsers5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsersNonExistent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdmins",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdmins1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdmins2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdminsNonExistent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetErrorEmptyQuery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetErrorInvalidEntity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/amogus/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"amogus",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/2/{\"name\":\"ayy\",\"surname\":\"lmao\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"2",
+						"{\"name\":\"ayy\",\"surname\":\"lmao\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostUsersExistent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/2/{\"name\":\"Alex\",\"surname\":\"Rover\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"2",
+						"{\"name\":\"Alex\",\"surname\":\"Rover\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostUsersNonExistent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/14/{\"name\":\"Alex\",\"surname\":\"Alex\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"14",
+						"{\"name\":\"Alex\",\"surname\":\"Alex\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostAdmins",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/2/{\"name\":\"ayy\",\"actual\":\"lmao\",\"pass\":\"kek\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"2",
+						"{\"name\":\"ayy\",\"actual\":\"lmao\",\"pass\":\"kek\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostAdminsExistent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/2/{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P/h8xANdyNGcDwHN1\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"2",
+						"{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P",
+						"h8xANdyNGcDwHN1\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostAdminsNonExistent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/11/{\"name\":\"Oh\",\"actual\":\"lmao\",\"pass\":\"kek\"}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"11",
+						"{\"name\":\"Oh\",\"actual\":\"lmao\",\"pass\":\"kek\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUsers",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUsers1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUsers5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUsersNonExistent",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAdmins",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAdmins1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/admins/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"admins",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAdmins2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAdminsNonExistent",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/lapi/users/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"lapi",
+						"users",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}

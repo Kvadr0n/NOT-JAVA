@@ -2,30 +2,27 @@
 <head>
 <title>одмен</title>
     <link rel="stylesheet" href="style.css" type="text/css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <input id="com" onkeypress="call(event)">
-<div class="res"></div>
+<div id="res"></div>
 </body>
 <script>
-function call(e)
+var com = document.getElementById("com");
+
+var xhttp = new XMLHttpRequest();
+xhttp.onload = function() 
 {
+	document.getElementById("res").innerText = this.responseText;
+}
+	
+function call(e)
+{	
 	if (e.keyCode == 13)
 	{
-		$.ajax
-		({
-			method: "POST",
-			url: "adminscript.php",
-			data: { text: $("input:text").val() }
-		}).done
-		(function(response)
-		{
-			$("div.res").html(response);
-		}
-		);
-		var input = document.getElementById("com");
-		input.value = '';
+		xhttp.open("POST", "adminscript.php?text=" + com.value);
+		xhttp.send();
+		com.value = '';
 	}
 }
 </script>

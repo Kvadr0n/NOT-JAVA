@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>posmen</title>
+</head>
+
+<style>
+main
+{
+	display: flex;
+	gap: 25px;
+}
+div
+{
+	border: 2px solid lightblue;
+}
+</style>
+
+<body>
+	<main>
+		<div>
+			<p>PUT User:</p>
+			<input id="putUserName" placeholder="name" onkeypress="putUserEnter(event)"></input>
+			<input id="putUserSurname" placeholder="surname" onkeypress="putUserEnter(event)"></input>
+		</div>
+		<div>
+			<p>PUT Admin:</p>
+			<input id="putAdminName" placeholder="name" onkeypress="putAdminEnter(event)"></input>
+			<input id="putAdminActual" placeholder="actual" onkeypress="putAdminEnter(event)"></input>
+			<input id="putAdminPass" placeholder="pass" onkeypress="putAdminEnter(event)"></input>
+		</div>
+	</main>
+	<main>
+		<div>
+			<p>GET User(s):</p>
+			<input id="getUserID" placeholder="ID" onkeypress="getUserEnter(event)"></input>
+		</div>
+		<div>
+			<p>GET Admin(s):</p>
+			<input id="getAdminID" placeholder="ID" onkeypress="getAdminEnter(event)"></input>
+		</div>
+	</main>
+		<main>
+		<div>
+			<p>POST User:</p>
+			<input id="postUserID" placeholder="ID" onkeypress="postUserEnter(event)"></input>
+			<input id="postUserName" placeholder="name" onkeypress="postUserEnter(event)"></input>
+			<input id="postUserSurname" placeholder="surname" onkeypress="postUserEnter(event)"></input>
+		</div>
+		<div>
+			<p>POST Admin:</p>
+			<input id="postAdminID" placeholder="ID" onkeypress="postAdminEnter(event)"></input>
+			<input id="postAdminName" placeholder="name" onkeypress="postAdminEnter(event)"></input>
+			<input id="postAdminActual" placeholder="actual" onkeypress="postAdminEnter(event)"></input>
+			<input id="postAdminPass" placeholder="pass" onkeypress="postAdminEnter(event)"></input>
+		</div>
+	</main>
+		<main>
+		<div>
+			<p>DELETE User(s):</p>
+			<input id="deleteUserID" placeholder="ID" onkeypress="deleteUserEnter(event)"></input>
+		</div>
+		<div>
+			<p>DELETE Admin(s):</p>
+			<input id="deleteAdminID" placeholder="ID" onkeypress="deleteAdminEnter(event)"></input>
+		</div>
+	</main>
+	<footer>RESULT: <span id="res"></span><footer>
+</body>
+
+<script>
+var putUserName = document.getElementById("putUserName");
+var putUserSurname = document.getElementById("putUserSurname");
+var putUser = new XMLHttpRequest();
+putUser.onload = function()
+{
+	document.getElementById("res").innerText = this.responseText;
+}
+function putUserEnter(e)
+{	
+	if (e.keyCode == 13)
+	{
+		putUser.open("PUT", "/lapi/users/" + '{"name":"' + putUserName.value + '","surname":"' + putUserSurname.value + '"}');
+		putUser.send();
+		putUserName.value = '';
+		putUserSurname.value = '';
+	}
+}
+
+var putAdminName = document.getElementById("putAdminName");
+var putAdminActual = document.getElementById("putAdminActual");
+var putAdminPass = document.getElementById("putAdminPass");
+var putAdmin = new XMLHttpRequest();
+putAdmin.onload = function()
+{
+	document.getElementById("res").innerText = this.responseText;
+}
+function putAdminEnter(e)
+{	
+	if (e.keyCode == 13)
+	{
+		putAdmin.open("PUT", "/lapi/admins/" + '{"name":"' + putAdminName.value + '","actual":"' + putAdminActual.value + '","pass":"' + putAdminPass.value + '"}');
+		putAdmin.send();
+		putAdminName.value = '';
+		putAdminActual.value = '';
+		putAdminPass.value = '';
+	}
+}
+
+var getUserID = document.getElementById("getUserID");
+var getUser = new XMLHttpRequest();
+getUser.onload = function() 
+{
+	document.getElementById("res").innerText = this.responseText;
+}
+function getUserEnter(e)
+{	
+	if (e.keyCode == 13)
+	{
+		getUser.open("GET", "/lapi/users/" + getUserID.value);
+		getUser.send();
+		getUserID.value = '';
+	}
+}
+
+var getAdminID = document.getElementById("getAdminID");
+var getAdmin = new XMLHttpRequest();
+getAdmin.onload = function() 
+{
+	document.getElementById("res").innerText = this.responseText;
+}
+function getAdminEnter(e)
+{	
+	if (e.keyCode == 13)
+	{
+		getAdmin.open("GET", "/lapi/admins/" + getAdminID.value);
+		getAdmin.send();
+		getAdminID.value = '';
+	}
+}
+
+var postUserID = document.getElementById("postUserID");
+var postUserName = document.getElementById("postUserName");
+var postUserSurname = document.getElementById("postUserSurname");
+var postUser = new XMLHttpRequest();
+postUser.onload = function() 
+{
+	document.getElementById("res").innerText = this.responseText;
+}
+function postUserEnter(e)
+{	
+	if (e.keyCode == 13)
+	{
+		postUser.open("POST", "/lapi/users/" + postUserID.value + '/{"name":"' + postUserName.value + '","surname":"' + postUserSurname.value + '"}');
+		postUser.send();
+		postUserID.value = '';
+		postUserName.value = '';
+		postUserSurname.value = '';
+	}
+}
+
+var postAdminID = document.getElementById("postAdminID");
+var postAdminName = document.getElementById("postAdminName");
+var postAdminActual = document.getElementById("postAdminActual");
+var postAdminPass = document.getElementById("postAdminPass");
+var postAdmin = new XMLHttpRequest();
+postAdmin.onload = function()
+{
+	document.getElementById("res").innerText = this.responseText;
+}
+function postAdminEnter(e)
+{	
+	if (e.keyCode == 13)
+	{
+		postAdmin.open("POST", "/lapi/admins/" + postAdminID.value + '/{"name":"' + postAdminName.value + '","actual":"' + postAdminActual.value + '","pass":"' + postAdminPass.value + '"}');
+		postAdmin.send();
+		postAdminID.value = '';
+		postAdminName.value = '';
+		postAdminActual.value = '';
+		postAdminPass.value = '';
+	}
+}
+
+var deleteUserID = document.getElementById("deleteUserID");
+var deleteUser = new XMLHttpRequest();
+deleteUser.onload = function() 
+{
+	document.getElementById("res").innerText = this.responseText;
+}
+function deleteUserEnter(e)
+{	
+	if (e.keyCode == 13)
+	{
+		deleteUser.open("DELETE", "/lapi/users/" + deleteUserID.value);
+		deleteUser.send();
+		deleteUserID.value = '';
+	}
+}
+
+var deleteAdminID = document.getElementById("deleteAdminID");
+var deleteAdmin = new XMLHttpRequest();
+deleteAdmin.onload = function() 
+{
+	document.getElementById("res").innerText = this.responseText;
+}
+function deleteAdminEnter(e)
+{	
+	if (e.keyCode == 13)
+	{
+		deleteAdmin.open("DELETE", "/lapi/admins/" + deleteAdminID.value);
+		deleteAdmin.send();
+		deleteAdminID.value = '';
+	}
+}
+</script>
+
+</html>
