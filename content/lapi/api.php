@@ -2,18 +2,17 @@
 $query = urldecode($_SERVER['REQUEST_URI']);
 $len = strlen($query);
 $slash = 6;
-for ($slash; ($query[$slash] != '/') && ($slash < $len); ++$slash);
+for ($slash; ($query[$slash] != '?') && ($slash < $len); ++$slash);
 $entity = substr($query, 6, $slash - 6);
 
 switch ($_SERVER['REQUEST_METHOD'])
 {
 	case "PUT":
 	{
-		$start = ++$slash;
-		for ($slash; $slash < $len; ++$slash);
-		$data = json_decode(substr($query, $start, $slash - $start), true);
-		if (!is_array($data))
+		$data = json_decode(file_get_contents('php://input'), true);
+		if ($data == null)
 		{
+			http_response_code(400);
 			echo "API ERROR: Invalid JSON";
 			break;
 		}
@@ -26,16 +25,19 @@ switch ($_SERVER['REQUEST_METHOD'])
 			{
 				if ($size != 2)
 				{
+					http_response_code(400);
 					echo "API ERROR: Invalid Data Size";
 					break;
 				}
 				if ($data["name"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: name Missing";
 					break;
 				}
 				if ($data["surname"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: surname Missing";
 					break;
 				}
@@ -43,6 +45,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 				$result = $mysqli->query("SELECT * FROM users WHERE name = \"".$data["name"]."\" AND surname = \"".$data["surname"]."\"");
 				if ($result->num_rows == 1)
 				{
+					http_response_code(409);
 					echo "API ERROR: Record already exists";
 					break;
 				}
@@ -54,21 +57,25 @@ switch ($_SERVER['REQUEST_METHOD'])
 			{
 				if ($size != 3)
 				{
+					http_response_code(400);
 					echo "API ERROR: Invalid Data Size";
 					break;
 				}
 				if ($data["name"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: name Missing";
 					break;
 				}
 				if ($data["actual"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: actual Missing";
 					break;
 				}
 				if ($data["pass"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: pass Missing";
 					break;
 				}
@@ -76,6 +83,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 				$result = $mysqli->query('SELECT * FROM auth WHERE name = "'.$data["name"].'"');
 				if ($result->num_rows == 1)
 				{
+					http_response_code(409);
 					echo "API ERROR: Record already exists";
 					break;
 				}
@@ -85,6 +93,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 			}
 			default:
 			{
+				http_response_code(400);
 				echo "API ERROR: Invalid Entity";
 				break;
 			}
@@ -93,9 +102,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 	}
 	case "GET":
 	{
-		$start = ++$slash;
-		for ($slash; $slash < $len; ++$slash);
-		$id = substr($query, $start, $slash - $start);
+		$id = $_GET["id"];
 		switch ($entity)
 		{
 			case "users":
@@ -106,7 +113,8 @@ switch ($_SERVER['REQUEST_METHOD'])
 					$result = $mysqli->query("SELECT * FROM users");
 					if ($result->num_rows == 0)
 					{
-						echo "";
+						http_response_code(404);
+						echo "API ERROR: Record does not exist";
 						break;
 					}
 					$json = "";
@@ -121,7 +129,8 @@ switch ($_SERVER['REQUEST_METHOD'])
 				$result = $mysqli->query("SELECT * FROM users WHERE ID = ".$id);
 				if ($result->num_rows == 0)
 				{
-					echo "";
+					http_response_code(404);
+					echo "API ERROR: Record does not exist";
 					break;
 				}
 				foreach ($result as $row)
@@ -136,7 +145,8 @@ switch ($_SERVER['REQUEST_METHOD'])
 					$result = $mysqli->query("SELECT * FROM auth");
 					if ($result->num_rows == 0)
 					{
-						echo "";
+						http_response_code(404);
+						echo "API ERROR: Record does not exist";
 						break;
 					}
 					$json = "";
@@ -151,7 +161,8 @@ switch ($_SERVER['REQUEST_METHOD'])
 				$result = $mysqli->query("SELECT * FROM auth WHERE ID = ".$id);
 				if ($result->num_rows == 0)
 				{
-					echo "";
+					http_response_code(404);
+					echo "API ERROR: Record does not exist";
 					break;
 				}
 				foreach ($result as $row)
@@ -160,6 +171,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 			}
 			default:
 			{
+				http_response_code(400);
 				echo "API ERROR: Invalid Entity";
 				break;
 			}
@@ -168,19 +180,10 @@ switch ($_SERVER['REQUEST_METHOD'])
 	}
 	case "POST":
 	{
-		$start = ++$slash;
-		for ($slash; ($query[$slash] != '/') && ($slash < $len); ++$slash);
-		$id = substr($query, $start, $slash - $start);
-		$start = ++$slash;
-		for ($slash; $slash < $len; ++$slash);
-		$data = json_decode(substr($query, $start, $slash - $start), true);
-		if (substr($query, $start, $slash - $start) == "")
+		$data = json_decode(file_get_contents('php://input'), true);
+		if ($data == null)
 		{
-			echo "API ERROR: id Missing";
-			break;
-		}
-		if (!is_array($data))
-		{
+			http_response_code(400);
 			echo "API ERROR: Invalid JSON";
 			break;
 		}
@@ -191,18 +194,27 @@ switch ($_SERVER['REQUEST_METHOD'])
 		{
 			case "users":
 			{
-				if ($size != 2)
+				if ($size != 3)
 				{
+					http_response_code(400);
 					echo "API ERROR: Invalid Data Size";
+					break;
+				}
+				if ($data["id"] == null)
+				{
+					http_response_code(400);
+					echo "API ERROR: id Missing";
 					break;
 				}
 				if ($data["name"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: name Missing";
 					break;
 				}
 				if ($data["surname"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: surname Missing";
 					break;
 				}
@@ -210,38 +222,50 @@ switch ($_SERVER['REQUEST_METHOD'])
 				$result = $mysqli->query("SELECT * FROM users WHERE name = \"".$data["name"]."\" AND surname = \"".$data["surname"]."\"");
 				if ($result->num_rows == 1)
 				{
+					http_response_code(409);
 					echo "API ERROR: New record already exists";
 					break;
 				}
-				$result = $mysqli->query("SELECT * FROM users WHERE ID = ".$id);
+				$result = $mysqli->query("SELECT * FROM users WHERE ID = ".$data["id"]);
 				if ($result->num_rows == 0)
 				{
+					http_response_code(404);
 					echo "API ERROR: Record does not exist";
 					break;
 				}
-				$result = $mysqli->query("UPDATE users SET name = \"".$data["name"]."\", surname = \"".$data["surname"]."\" WHERE ID = ".$id);
+				$result = $mysqli->query("UPDATE users SET name = \"".$data["name"]."\", surname = \"".$data["surname"]."\" WHERE ID = ".$data["id"]);
 				echo "POST Success";
 				break;
 			}
 			case "admins":
 			{
-				if ($size != 3)
+				if ($size != 4)
 				{
+					http_response_code(400);
 					echo "API ERROR: Invalid Data Size";
+					break;
+				}
+				if ($data["id"] == null)
+				{
+					http_response_code(400);
+					echo "API ERROR: id Missing";
 					break;
 				}
 				if ($data["name"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: name Missing";
 					break;
 				}
 				if ($data["actual"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: actual Missing";
 					break;
 				}
 				if ($data["pass"] == null)
 				{
+					http_response_code(400);
 					echo "API ERROR: pass Missing";
 					break;
 				}
@@ -249,21 +273,24 @@ switch ($_SERVER['REQUEST_METHOD'])
 				$result = $mysqli->query('SELECT * FROM auth WHERE name = "'.$data["name"].'"');
 				if ($result->num_rows == 1)
 				{
+					http_response_code(409);
 					echo "API ERROR: New record already exists";
 					break;
 				}
-				$result = $mysqli->query("SELECT * FROM auth WHERE ID = ".$id);
+				$result = $mysqli->query("SELECT * FROM auth WHERE ID = ".$data["id"]);
 				if ($result->num_rows == 0)
 				{
+					http_response_code(404);
 					echo "API ERROR: Record does not exist";
 					break;
 				}
-				$result = $mysqli->query("UPDATE auth SET name = \"".$data["name"]."\", actual = \"".$data["actual"]."\", pass = \"".$data["pass"]."\" WHERE ID = ".$id);
+				$result = $mysqli->query("UPDATE auth SET name = \"".$data["name"]."\", actual = \"".$data["actual"]."\", pass = \"".$data["pass"]."\" WHERE ID = ".$data["id"]);
 				echo "POST Success";
 				break;
 			}
 			default:
 			{
+				http_response_code(400);
 				echo "API ERROR: Invalid Entity";
 				break;
 			}
@@ -272,9 +299,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 	}
 	case "DELETE":
 	{
-		$start = ++$slash;
-		for ($slash; $slash < $len; ++$slash);
-		$id = substr($query, $start, $slash - $start);
+		$id = $_GET["id"];
 		switch ($entity)
 		{
 			case "users":
@@ -289,6 +314,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 				$result = $mysqli->query("SELECT * FROM users WHERE ID = ".$id);
 				if ($result->num_rows == 0)
 				{
+					http_response_code(404);
 					echo "API ERROR: Record does not exist";
 					break;
 				}
@@ -308,6 +334,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 				$result = $mysqli->query("SELECT * FROM auth WHERE ID = ".$id);
 				if ($result->num_rows == 0)
 				{
+					http_response_code(404);
 					echo "API ERROR: Record does not exist";
 					break;
 				}
@@ -317,6 +344,7 @@ switch ($_SERVER['REQUEST_METHOD'])
 			}
 			default:
 			{
+				http_response_code(400);
 				echo "API ERROR: Invalid Entity";
 				break;
 			}
