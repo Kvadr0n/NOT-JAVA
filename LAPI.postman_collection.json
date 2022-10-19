@@ -12,16 +12,24 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mikhail\",\r\n    \"surname\": \"Volk\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost/lapi/users/{\"name\":\"Mikhail\",\"surname\":\"Volk\"}",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"{\"name\":\"Mikhail\",\"surname\":\"Volk\"}"
+						"users"
 					]
 				}
 			},
@@ -32,16 +40,24 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Andrej\",\"surname\":\"Lyannoi\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost/lapi/users/{\"name\":\"Andrej\",\"surname\":\"Lyannoi\"}",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"{\"name\":\"Andrej\",\"surname\":\"Lyannoi\"}"
+						"users"
 					]
 				}
 			},
@@ -52,16 +68,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Andrej\",\"surname\":\"Lyannoi\",\"amogus\":\"2\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/users/{\"name\":\"Andrej\",\"surname\":\"Lyannoi\",\"amogus\":\"2\"}",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"{\"name\":\"Andrej\",\"surname\":\"Lyannoi\",\"amogus\":\"2\"}"
+						"users"
 					]
 				}
 			},
@@ -72,16 +91,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"\",\"surname\":\"Lyannoi\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/users/{\"name\":\"\",\"surname\":\"Lyannoi\"}",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"{\"name\":\"\",\"surname\":\"Lyannoi\"}"
+						"users"
 					]
 				}
 			},
@@ -92,16 +114,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Andrej\",\"surname\":\"\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/users/{\"name\":\"Andrej\",\"surname\":\"\"}",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"{\"name\":\"Andrej\",\"surname\":\"\"}"
+						"users"
 					]
 				}
 			},
@@ -112,16 +137,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Vilk\",\"actual\":\"Amogus\",\"pass\":\"kekw\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/{\"name\":\"Vilk\",\"actual\":\"Amogus\",\"pass\":\"kekw\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"{\"name\":\"Vilk\",\"actual\":\"Amogus\",\"pass\":\"kekw\"}"
+						"admins"
 					]
 				}
 			},
@@ -132,17 +160,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P/h8xANdyNGcDwHN1\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P/h8xANdyNGcDwHN1\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P",
-						"h8xANdyNGcDwHN1\"}"
+						"admins"
 					]
 				}
 			},
@@ -153,16 +183,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Andrej\",\"Actual\":\"Lyannoi\",\"pass\":\"2\",\"amogus\":\"2\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/{\"name\":\"Andrej\",\"Actual\":\"Lyannoi\",\"pass\":\"2\",\"amogus\":\"2\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"{\"name\":\"Andrej\",\"Actual\":\"Lyannoi\",\"pass\":\"2\",\"amogus\":\"2\"}"
+						"admins"
 					]
 				}
 			},
@@ -173,16 +206,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"\",\"Actual\":\"Lyannoi\",\"pass\":\"2\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/{\"name\":\"\",\"Actual\":\"Lyannoi\",\"pass\":\"2\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"{\"name\":\"\",\"Actual\":\"Lyannoi\",\"pass\":\"2\"}"
+						"admins"
 					]
 				}
 			},
@@ -193,16 +229,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Andrej\",\"Actual\":\"\",\"pass\":\"2\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/{\"name\":\"Andrej\",\"Actual\":\"\",\"pass\":\"2\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"{\"name\":\"Andrej\",\"Actual\":\"\",\"pass\":\"2\"}"
+						"admins"
 					]
 				}
 			},
@@ -213,16 +252,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Andrej\",\"actual\":\"Lyannoi\",\"pass\":\"\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/{\"name\":\"Andrej\",\"actual\":\"Lyannoi\",\"pass\":\"\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"{\"name\":\"Andrej\",\"actual\":\"Lyannoi\",\"pass\":\"\"}"
+						"admins"
 					]
 				}
 			},
@@ -233,6 +275,10 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost/lapi",
 					"protocol": "http",
@@ -251,16 +297,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"a\":\"a\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/amogus/{}",
+					"raw": "http://localhost/lapi/amogus",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"amogus",
-						"{}"
+						"amogus"
 					]
 				}
 			},
@@ -271,16 +320,19 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/amogus/2",
+					"raw": "http://localhost/lapi/amogus",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"amogus",
-						"2"
+						"amogus"
 					]
 				}
 			},
@@ -292,15 +344,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/users/",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						""
+						"users"
 					]
 				}
 			},
@@ -315,15 +366,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/users/1",
+					"raw": "http://localhost/lapi/users?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"1"
+						"users"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -335,15 +391,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/users/5",
+					"raw": "http://localhost/lapi/users?id=5",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"5"
+						"users"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
 					]
 				}
 			},
@@ -355,15 +416,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/users/6",
+					"raw": "http://localhost/lapi/users?id=6",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"6"
+						"users"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						}
 					]
 				}
 			},
@@ -375,15 +441,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/admins/",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						""
+						"admins"
 					]
 				}
 			},
@@ -395,15 +460,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/admins/1",
+					"raw": "http://localhost/lapi/admins?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"1"
+						"admins"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -415,15 +485,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/admins/2",
+					"raw": "http://localhost/lapi/admins?id=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"2"
+						"admins"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
 					]
 				}
 			},
@@ -435,15 +510,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/admins/3",
+					"raw": "http://localhost/lapi/admins?id=3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"3"
+						"admins"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
 					]
 				}
 			},
@@ -473,15 +553,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/amogus/2",
+					"raw": "http://localhost/lapi/amogus?id=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"amogus",
-						"2"
+						"amogus"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
 					]
 				}
 			},
@@ -492,17 +577,19 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"2\",\"name\":\"ayy\",\"surname\":\"lmao\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/users/2/{\"name\":\"ayy\",\"surname\":\"lmao\"}",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"2",
-						"{\"name\":\"ayy\",\"surname\":\"lmao\"}"
+						"users"
 					]
 				}
 			},
@@ -513,17 +600,19 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"2\",\"name\":\"Alex\",\"surname\":\"Rover\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/users/2/{\"name\":\"Alex\",\"surname\":\"Rover\"}",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"2",
-						"{\"name\":\"Alex\",\"surname\":\"Rover\"}"
+						"users"
 					]
 				}
 			},
@@ -534,17 +623,19 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"14\",\"name\":\"Alex\",\"surname\":\"Alex\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/users/14/{\"name\":\"Alex\",\"surname\":\"Alex\"}",
+					"raw": "http://localhost/lapi/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"14",
-						"{\"name\":\"Alex\",\"surname\":\"Alex\"}"
+						"users"
 					]
 				}
 			},
@@ -555,17 +646,19 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"2\",\"name\":\"ayy\",\"actual\":\"lmao\",\"pass\":\"kek\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/2/{\"name\":\"ayy\",\"actual\":\"lmao\",\"pass\":\"kek\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"2",
-						"{\"name\":\"ayy\",\"actual\":\"lmao\",\"pass\":\"kek\"}"
+						"admins"
 					]
 				}
 			},
@@ -576,18 +669,19 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"2\",\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P/h8xANdyNGcDwHN1\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/2/{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P/h8xANdyNGcDwHN1\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"2",
-						"{\"name\":\"ADMIN1\",\"actual\":\"Franklin5\",\"pass\":\"$apr1$JgJRg.Ty$fsEt1P",
-						"h8xANdyNGcDwHN1\"}"
+						"admins"
 					]
 				}
 			},
@@ -598,17 +692,19 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"11\",\"name\":\"Oh\",\"actual\":\"lmao\",\"pass\":\"kek\"}"
+				},
 				"url": {
-					"raw": "http://localhost/lapi/admins/11/{\"name\":\"Oh\",\"actual\":\"lmao\",\"pass\":\"kek\"}",
+					"raw": "http://localhost/lapi/admins",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"11",
-						"{\"name\":\"Oh\",\"actual\":\"lmao\",\"pass\":\"kek\"}"
+						"admins"
 					]
 				}
 			},
