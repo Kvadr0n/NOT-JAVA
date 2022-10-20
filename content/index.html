@@ -77,13 +77,12 @@ putUser.onload = function()
 {
 	document.getElementById("res").innerText = this.responseText;
 }
-putUser.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 function putUserEnter(e)
 {	
 	if (e.keyCode == 13)
 	{
 		putUser.open("PUT", "/lapi/users");
-		putUser.send("name=" + putUserName.value + "&surname=" + putUserSurname.value);
+		putUser.send('{"name":"' + putUserName.value + '","surname":"' + putUserSurname.value + '"}');
 		putUserName.value = '';
 		putUserSurname.value = '';
 	}
@@ -101,8 +100,8 @@ function putAdminEnter(e)
 {	
 	if (e.keyCode == 13)
 	{
-		putAdmin.open("PUT", "/lapi/admins/" + '{"name":"' + putAdminName.value + '","actual":"' + putAdminActual.value + '","pass":"' + putAdminPass.value + '"}');
-		putAdmin.send();
+		putAdmin.open("PUT", "/lapi/admins");
+		putAdmin.send('{"name":"' + putAdminName.value + '","actual":"' + putAdminActual.value + '","pass":"' + putAdminPass.value + '"}');
 		putAdminName.value = '';
 		putAdminActual.value = '';
 		putAdminPass.value = '';
@@ -119,7 +118,7 @@ function getUserEnter(e)
 {	
 	if (e.keyCode == 13)
 	{
-		getUser.open("GET", "/lapi/users/" + getUserID.value);
+		getUser.open("GET", "/lapi/users?id=" + getUserID.value);
 		getUser.send();
 		getUserID.value = '';
 	}
@@ -135,7 +134,7 @@ function getAdminEnter(e)
 {	
 	if (e.keyCode == 13)
 	{
-		getAdmin.open("GET", "/lapi/admins/" + getAdminID.value);
+		getAdmin.open("GET", "/lapi/admins?id=" + getAdminID.value);
 		getAdmin.send();
 		getAdminID.value = '';
 	}
@@ -153,8 +152,8 @@ function postUserEnter(e)
 {	
 	if (e.keyCode == 13)
 	{
-		postUser.open("POST", "/lapi/users/" + postUserID.value + '/{"name":"' + postUserName.value + '","surname":"' + postUserSurname.value + '"}');
-		postUser.send();
+		postUser.open("POST", "/lapi/users");
+		postUser.send('{"id":"' + postUserID.value + '","name":"' + postUserName.value + '","surname":"' + postUserSurname.value + '"}');
 		postUserID.value = '';
 		postUserName.value = '';
 		postUserSurname.value = '';
@@ -174,8 +173,8 @@ function postAdminEnter(e)
 {	
 	if (e.keyCode == 13)
 	{
-		postAdmin.open("POST", "/lapi/admins/" + postAdminID.value + '/{"name":"' + postAdminName.value + '","actual":"' + postAdminActual.value + '","pass":"' + postAdminPass.value + '"}');
-		postAdmin.send();
+		postAdmin.open("POST", "/lapi/admins");
+		postAdmin.send('{"id":"' + postAdminID.value + + '","name":"' + postAdminName.value + '","actual":"' + postAdminActual.value + '","pass":"' + postAdminPass.value + '"}');
 		postAdminID.value = '';
 		postAdminName.value = '';
 		postAdminActual.value = '';
@@ -193,7 +192,7 @@ function deleteUserEnter(e)
 {	
 	if (e.keyCode == 13)
 	{
-		deleteUser.open("DELETE", "/lapi/users/" + deleteUserID.value);
+		deleteUser.open("DELETE", "/lapi/users?id=" + deleteUserID.value);
 		deleteUser.send();
 		deleteUserID.value = '';
 	}
@@ -209,7 +208,7 @@ function deleteAdminEnter(e)
 {	
 	if (e.keyCode == 13)
 	{
-		deleteAdmin.open("DELETE", "/lapi/admins/" + deleteAdminID.value);
+		deleteAdmin.open("DELETE", "/lapi/admins?id=" + deleteAdminID.value);
 		deleteAdmin.send();
 		deleteAdminID.value = '';
 	}
