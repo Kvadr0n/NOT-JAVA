@@ -1,13 +1,19 @@
 version: '3'
 services:
-    db:
+    redis:
+        image: redis
+        volumes:
+        - redis_volume:/data
+        ports:
+        - 6379:6379
+    mysql:
         image: mysql
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_ROOT_PASSWORD: Franklin5
         volumes:
         - "./mysqldir/:/docker-entrypoint-initdb.d"
-        - db_volume:/var/lib/mysql
+        - mysql_volume:/var/lib/mysql
         ports:
         - 3306:3306
     apache:
@@ -27,4 +33,5 @@ services:
         depends_on:
         - apache
 volumes:
-    db_volume:
+    mysql_volume:
+    redis_volume:
