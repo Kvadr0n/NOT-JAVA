@@ -1,6 +1,8 @@
 <?php
-$target_dir = "/var/www/html/files/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file);
-header('Location: index.html');
+if (file_get_contents($_FILES['fileToUpload']['tmp_name'], false, null, 0, 5) == "%PDF-")
+{
+	move_uploaded_file($_FILES['fileToUpload']['tmp_name'], "/var/www/html/files/".basename($_FILES["fileToUpload"]["name"]));
+	header('Location: index.html');
+}
+echo "ERROR: File is not PDF."
 ?>
