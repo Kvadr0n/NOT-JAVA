@@ -2,8 +2,6 @@ version: '3'
 services:
     redis:
         image: redis
-        volumes:
-        - redis_volume:/data
         ports:
         - 6379:6379
     mysql:
@@ -19,7 +17,7 @@ services:
     apache:
         build: apachedir
         volumes:
-        - "./content:/var/www/html"
+        - "./content:/var/www/html"        
         ports:
         - 8080:80
     nginx:
@@ -34,4 +32,3 @@ services:
         - apache
 volumes:
     mysql_volume:
-    redis_volume:
