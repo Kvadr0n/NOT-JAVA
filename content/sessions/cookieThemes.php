@@ -1,13 +1,55 @@
 <?php
-if (!isset($_COOKIE['logged']))
+include "/var/www/html/baseMVC.php";
+
+class Model implements IModel
 {
-	header('Location: cookieLogin.php');
-	exit;
+	public static function &domain()
+	{
+		return($_COOKIE);
+	}
+	
+	public static function C($query = "")
+	{
+		setcookie($query[0], $query[1], $query[2], '/');
+	}
+	
+	public static function R($query = "")
+	{
+		return(Model::domain()[$query]);
+	}
+	
+	public static function U($query = "")
+	{
+		die;
+	}
+	
+	public static function D($query = "")
+	{
+		die;
+	}
 }
 
-function cook($options, $i) 
+class View implements IView
 {
-	echo $options[$_COOKIE[$_COOKIE['logged']][$i]];
+	public static function display($query = "")
+	{
+		if (null == Model::R('logged'))
+		{
+			header('Location: cookieLogin.php');
+			exit;
+		}
+		echo $query[0][Model::R(Model::R('logged'))[$query[1]]].$query[2];
+	}
+}
+
+class Controller implements IController
+{
+	public static function control($query = "")
+	{
+		if (!isset($query[2]))
+			$query[2] = "";
+		View::display($query);
+	}
 }
 ?>
 <html>
@@ -23,27 +65,27 @@ function cook($options, $i)
 }
 </style>
 
-<body id=<?php cook(array('"white"', '"grey"'), 1);?>>
+<body id=<?php Controller::control(array(array("white", "grey"), 1));?>>
 
-<div id="hi"><?php echo cook(array("Hi, ", "Привет, "), 0).$_COOKIE['logged'];?>!</div>
+<div id="hi"><?php Controller::control(array(array("Hi, ", "Привет, "), 0, Model::R('logged')));?>!</div>
 
 <div>
-	<div id="lang"><?php cook(array("Language", "Язык"), 0);?></div>
-	<input type="radio" name="lang" id="lang0" onclick="lang0Click(event)" <?php cook(array("checked", ""), 0);?>>
-	<label for="lang0"><?php cook(array("English", "Английский"), 0);?></label>
-	<input type="radio" name="lang" id="lang1" onclick="lang1Click(event)" <?php cook(array("", "checked"), 0);?>>
-	<label for="lang1"><?php cook(array("Russian", "Русский"), 0);?></label>
+	<div id="lang"><?php Controller::control(array(array("Language", "Язык"), 0));?></div>
+	<input type="radio" name="lang" id="lang0" onclick="lang0Click(event)" <?php Controller::control(array(array("checked", ""), 0));?>>
+	<label for="lang0"><?php Controller::control(array(array("English", "Английский"), 0));?></label>
+	<input type="radio" name="lang" id="lang1" onclick="lang1Click(event)" <?php Controller::control(array(array("", "checked"), 0));?>>
+	<label for="lang1"><?php Controller::control(array(array("Russian", "Русский"), 0));?></label>
 </div>
 
 <div>
-	<div id="theme"><?php cook(array("Theme", "Тема"), 0);?></div>
-	<input type="radio" name="theme" id="theme0" onclick="theme0Click(event)" <?php cook(array("checked", ""), 1);?>>
-	<label for="theme0"><?php cook(array("Light", "Светлая"), 0);?></label>
-	<input type="radio" name="theme" id="theme1" onclick="theme1Click(event)" <?php cook(array("", "checked"), 1);?>>
-	<label for="theme1"><?php cook(array("Dark", "Тёмная"), 0);?></label>
+	<div id="theme"><?php Controller::control(array(array("Theme", "Тема"), 0));?></div>
+	<input type="radio" name="theme" id="theme0" onclick="theme0Click(event)" <?php Controller::control(array(array("checked", ""), 1));?>>
+	<label for="theme0"><?php Controller::control(array(array("Light", "Светлая"), 0));?></label>
+	<input type="radio" name="theme" id="theme1" onclick="theme1Click(event)" <?php Controller::control(array(array("", "checked"), 1));?>>
+	<label for="theme1"><?php Controller::control(array(array("Dark", "Тёмная"), 0));?></label>
 </div>
 
-<input type="button" id="logout" value=<?php cook(array('"Logout"', '"Выход"'), 0);?> onclick="logoutClick(event)">
+<input type="button" id="logout" value=<?php Controller::control(array(array('"Logout"', '"Выход"'), 0));?> onclick="logoutClick(event)">
 
 </body>
 

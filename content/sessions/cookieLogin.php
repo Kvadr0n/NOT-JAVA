@@ -5,11 +5,57 @@
 </head>
 
 <?php
-if (isset($_COOKIE['logged']))
+include "/var/www/html/baseMVC.php";
+
+class Model implements IModel
 {
-	header('Location: cookieThemes.php');
-	exit;
+	public static function &domain()
+	{
+		return($_COOKIE);
+	}
+	
+	public static function C($query = "")
+	{
+		die;
+	}
+	
+	public static function R($query = "")
+	{
+		return(isset(Model::domain()["logged"]));
+	}
+	
+	public static function U($query = "")
+	{
+		die;
+	}
+	
+	public static function D($query = "")
+	{
+		die;
+	}
 }
+
+class View implements IView
+{
+	public static function display($query = "")
+	{
+		if (Model::R())
+		{
+			header('Location: cookieThemes.php');
+			exit;
+		}
+	}
+}
+
+class Controller implements IController
+{
+	public static function control($query = "")
+	{
+		View::display();
+	}
+}
+
+Controller::control();
 ?>
 
 <style>
