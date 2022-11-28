@@ -231,7 +231,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"Andrej\",\"Actual\":\"\",\"pass\":\"2\"}"
+					"raw": "{\"name\":\"Andrej\",\"actual\":\"\",\"pass\":\"2\"}"
 				},
 				"url": {
 					"raw": "http://localhost/lapi/admins",
@@ -814,15 +814,20 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/admins/1",
+					"raw": "http://localhost/lapi/admins?id=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"admins",
-						"1"
+						"admins"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -834,15 +839,20 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/users/2",
+					"raw": "http://localhost/lapi/admins?id=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"2"
+						"admins"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
 					]
 				}
 			},
@@ -854,15 +864,20 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/lapi/users/10",
+					"raw": "http://localhost/lapi/admins?id=15",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"lapi",
-						"users",
-						"10"
+						"admins"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "15"
+						}
 					]
 				}
 			},
